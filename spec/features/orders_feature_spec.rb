@@ -28,7 +28,7 @@ end
 feature 'A user while shopping' do
 
   before(:each) do
-    product = Product.create(name: 'Black Shoes', category: "Men's Footwear", quantity: 1)
+    product = Product.create(name: 'Black Shoes', category: "Men's Footwear", quantity: 1, price: 9.99)
     order = Order.create
     order.products << product
     visit '/'
@@ -43,6 +43,10 @@ feature 'A user while shopping' do
     click_on 'Remove item'
     expect(page).not_to have_content 'Black shoes'
     expect(page).to have_content 'Empty!'
+  end
+
+  scenario 'can view total price of order' do
+    expect(page).to have_content 'Total: $9.99'
   end
 
 end

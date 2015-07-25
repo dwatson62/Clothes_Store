@@ -35,7 +35,7 @@ The vouchers were an interesting problem to solve. With the types of vouchers gi
 - ``` bin/rake db:create ``` (this will create the databases 'clothing_tech_test_development and 'clothing_tech_test_test')
 - ``` bin/rake db:migrate ```
 - ``` bin/rails server ```
-- Visit [Clothes Store](http://localhost:3000)
+- Visit [http://localhost:3000](http://localhost:3000)
 - ``` rspec ``` to run the tests
 
 ## Technologies Used

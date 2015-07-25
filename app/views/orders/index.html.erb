@@ -1,5 +1,5 @@
 <% @products.each do |product| %>
-  <li> <%= product.name %> - <%= product.category %> </li>
+  <li> <%= product.name %> - <%= product.category %> <%= number_to_currency(product.price) %> </li>
   <br>
   <% if product.quantity < 1 %>
     Out of Stock
@@ -14,26 +14,21 @@
 <br>
 <br>
 <h3>Shopping cart:</h3>
-<br>
-<br>
-<% if @order.products.length > 0 %>
-  <% @order.products.each do |product| %>
-    <li> <%= product.name %> <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
+<% if @ordered_products.length > 0 %>
+  <% @ordered_products.uniq.each do |product| %>
+    <li> <%= @ordered_products.count(product) %>x <%= product.name %> <%= number_to_currency(product.price) %> <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
+    <br>
   <% end %>
-  Total: <%= @total %>
+  Total: <%= number_to_currency(@order.total) %>
   <% if @order.discount > 0 %>
-    Discount: $<%= @order.discount %>
+    Discount: <%= number_to_currency(@order.discount) %>
+  <% end %>
+  <br>
+  Available voucher:
+  <br>
+  <%= form_for [@order] do |f| %>
+    <%= f.submit value: @available_voucher['description'] %>
   <% end %>
 <% else %>
   Empty!
-<% end %>
-<br>
-Available vouchers:
-<br>
-<br>
-<% @order.vouchers.each do |voucher| %>
-    <%= form_for [@order] do |f| %>
-      <%= f.submit value: voucher['description'] %>
-    <% end %>
-    <br>
 <% end %>

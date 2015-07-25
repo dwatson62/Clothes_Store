@@ -1,24 +1,19 @@
 class OrdersController < ApplicationController
 
   include ActionView::Helpers::NumberHelper
-  include OrdersHelper
 
   def index
     @order = Order.first_or_create
     @products = Product.all
-    @order.subtotal = @order.products.sum(:price)
-    @order.total = @order.subtotal - @order.discount
-    @order.save
-    @total = number_to_currency(@order.total)
+    @order.update_total
+    @available_voucher = @order.prepare_voucher
+    @ordered_products = @order.products.to_a
   end
 
   def update
     order = Order.find(params[:id])
-    if params[:commit].include?('$5 off')
-      order.apply_voucher1
-    elsif params[:commit].include?('$10 off')
-      order.apply_voucher2
-    end
+    voucher = order.prepare_voucher
+    order.apply_voucher(voucher)
     redirect_to '/'
   end
 

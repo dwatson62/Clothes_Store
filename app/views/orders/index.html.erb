@@ -8,12 +8,12 @@
 <% end %>
 <br>
 <br>
-<h3>Shopping cart</h3>
+<h3>Shopping cart:</h3>
 <br>
 <br>
 <% if @order.products.length > 0 %>
   <% @order.products.each do |product| %>
-    <li> <%= product.name %> </li>
+    <li> <%= product.name %> <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
   <% end %>
 <% else %>
   Empty!

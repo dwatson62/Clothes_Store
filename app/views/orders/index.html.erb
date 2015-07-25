@@ -1,21 +1,3 @@
-Available vouchers:
-<br>
-<br>
-
-  <%= form_for [@order] do |f| %>
-    <% @order.vouchers.each do |voucher| %>
-      <%= f.label voucher['description'] %>
-      <br>
-      <%= f.submit voucher['discount'] %>
-      <br>
-      <br>
-    <% end %>
-    <br>
-  <% end %>
-  <br>
-  <br>
-
-
 <% @products.each do |product| %>
   <li> <%= product.name %> - <%= product.category %> </li>
   <br>
@@ -44,4 +26,14 @@ Available vouchers:
   <% end %>
 <% else %>
   Empty!
+<% end %>
+<br>
+Available vouchers:
+<br>
+<br>
+<% @order.vouchers.each do |voucher| %>
+    <%= form_for [@order] do |f| %>
+      <%= f.submit value: voucher['description'] %>
+    <% end %>
+    <br>
 <% end %>

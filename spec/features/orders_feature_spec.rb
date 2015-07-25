@@ -75,7 +75,7 @@ feature 'Vouchers' do
 
   scenario 'Can apply a $5.00 discount to the order' do
     expect(page).to have_content 'Total: $9.99'
-    click_on '$5.00 discount'
+    click_on '$5 off your order'
     expect(page).to have_content 'Total: $4.99'
   end
 
@@ -85,7 +85,7 @@ feature 'Vouchers' do
     order.products << product
     visit '/'
     expect(page).to have_content 'Total: $59.98'
-    click_on '$10.00 discount'
+    click_on '$10 off when you spend over $50.00'
     expect(page).to have_content 'Total: $49.98'
   end
 

@@ -14,9 +14,9 @@ class OrdersController < ApplicationController
 
   def update
     order = Order.find(params[:id])
-    if params[:commit] == '5'
+    if params[:commit].include?('$5 off')
       order.apply_voucher1
-    elsif params[:commit] == '10'
+    elsif params[:commit].include?('$10 off')
       order.apply_voucher2
     end
     redirect_to '/'

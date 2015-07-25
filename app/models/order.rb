@@ -1,6 +1,5 @@
 class Order < ActiveRecord::Base
 
-  belongs_to :user
   has_and_belongs_to_many :products
 
   VOUCHER1 = { 'description' => '$5 off your order', 'discount' => 5, 'minimum_order' => 5, 'condition' => '', 'minimum_number' => 0 }

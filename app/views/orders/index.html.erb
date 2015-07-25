@@ -1,5 +1,11 @@
 <% @products.each do |product| %>
-  <li> <%= product.name %> - <%= product.category %> <%= number_to_currency(product.price) %> </li>
+  <li> <%= product.name %> - <%= product.category %>
+    <% if product.old_price %>
+      Was <strike><%= number_to_currency(product.old_price) %></strike>
+      Now
+    <% end %>
+    <%= number_to_currency(product.price) %>
+  </li>
   <br>
   <% if product.quantity < 1 %>
     Out of Stock

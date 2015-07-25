@@ -25,10 +25,6 @@ feature 'A user arrives on the home page for the first time' do
     expect(order.products.length).to eq 1
   end
 
-  scenario 'can order more than one of an item' do
-
-  end
-
   scenario 'cannot order an item that is out of stock' do
     expect(page).to have_content "Black Tie - Men's Formalwear $15.99 Out of Stock"
   end

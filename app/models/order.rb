@@ -35,4 +35,9 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def remove_discounts
+    self.discount = 0
+    self.save
+  end
+
 end

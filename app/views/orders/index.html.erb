@@ -1,3 +1,29 @@
+<h3>Shopping cart:</h3>
+<% if @ordered_products.length > 0 %>
+  <% @ordered_products.uniq.each do |product| %>
+    <li> <%= @ordered_products.count(product) %>x <%= product.name %> <%= number_to_currency(product.price) %> <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
+    <br>
+  <% end %>
+  <b>Total: <%= number_to_currency(@order.total) %></b>
+  <br>
+  <% if @order.discount > 0 %>
+    <i>Discount: <%= number_to_currency(@order.discount) %></i>
+    <br>
+  <% end %>
+  <br>
+  <% if @available_voucher %>
+    Available voucher:
+    <br>
+    <br>
+    <%= form_for [@order] do |f| %>
+      <%= f.submit value: @available_voucher['description'] %>
+    <% end %>
+  <% end %>
+<% else %>
+  Empty!
+<% end %>
+<br>
+<br>
 <% @products.each do |product| %>
   <li> <%= product.name %> - <%= product.category %>
     <% if product.old_price %>
@@ -15,26 +41,4 @@
     <% end %>
   <% end %>
   <br>
-  <br>
-<% end %>
-<br>
-<br>
-<h3>Shopping cart:</h3>
-<% if @ordered_products.length > 0 %>
-  <% @ordered_products.uniq.each do |product| %>
-    <li> <%= @ordered_products.count(product) %>x <%= product.name %> <%= number_to_currency(product.price) %> <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
-    <br>
-  <% end %>
-  Total: <%= number_to_currency(@order.total) %>
-  <% if @order.discount > 0 %>
-    Discount: <%= number_to_currency(@order.discount) %>
-  <% end %>
-  <br>
-  Available voucher:
-  <br>
-  <%= form_for [@order] do |f| %>
-    <%= f.submit value: @available_voucher['description'] %>
-  <% end %>
-<% else %>
-  Empty!
 <% end %>

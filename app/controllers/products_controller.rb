@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     product.save
     order = Order.find(params[:order_id])
     order.products << product
+    order.remove_discounts
     redirect_to '/'
   end
 

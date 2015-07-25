@@ -55,4 +55,17 @@ feature 'Vouchers' do
     expect(page).not_to have_content 'Discount: $5.00'
   end
 
+  scenario 'Adding another item to the cart also removes applied voucher' do
+    click_on '$5 off your order'
+    expect(page).to have_content 'Discount: $5.00'
+    click_on 'Add to cart'
+    expect(page).not_to have_content 'Discount: $5.00'
+  end
+
+  scenario 'Voucher can only be applied once' do
+    click_on '$5 off your order'
+    expect(page).to have_content 'Discount: $5.00'
+    expect(page).not_to have_button '$5 off your order'
+  end
+
 end

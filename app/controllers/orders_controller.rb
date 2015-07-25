@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @order = Order.new
+    @order = Order.first_or_create
     @products = Product.all
   end
 

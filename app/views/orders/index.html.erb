@@ -1,3 +1,20 @@
 <% @products.each do |product| %>
-  <li> <%= product.name %> - <%= product.category %> </li>
+  <li> <%= product.name %> - <%= product.category %>
+    <%= form_for [@order, product] do |f| %>
+      <br>
+      <%= f.submit 'Add to cart' %>
+    <% end %> </li>
+    <br>
+<% end %>
+<br>
+<br>
+<h3>Shopping cart</h3>
+<br>
+<br>
+<% if @order.products.length > 0 %>
+  <% @order.products.each do |product| %>
+    <li> <%= product.name %> </li>
+  <% end %>
+<% else %>
+  Empty!
 <% end %>

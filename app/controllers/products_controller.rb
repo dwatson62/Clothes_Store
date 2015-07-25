@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
     order = Order.find(params[:order_id])
     index = order.products.find(product.id)
     order.products.delete(product)
+    order.discount = 0
+    order.save
     redirect_to '/'
   end
 

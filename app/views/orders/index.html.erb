@@ -1,9 +1,20 @@
 Available vouchers:
+<br>
+<br>
 
-<li> <%= form_for [@order] do |f| %>
-      <%= f.submit '$5.00 discount' %>
+  <%= form_for [@order] do |f| %>
+    <% @order.vouchers.each do |voucher| %>
+      <%= f.label voucher['description'] %>
+      <br>
+      <%= f.submit voucher['discount'] %>
+      <br>
+      <br>
     <% end %>
-</li>
+    <br>
+  <% end %>
+  <br>
+  <br>
+
 
 <% @products.each do |product| %>
   <li> <%= product.name %> - <%= product.category %> </li>

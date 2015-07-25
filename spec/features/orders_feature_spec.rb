@@ -79,4 +79,14 @@ feature 'Vouchers' do
     expect(page).to have_content 'Total: $4.99'
   end
 
+  scenario 'Can apply a $10.00 discount to an over $50 order' do
+    product = Product.create(name: 'Black Jacket', category: "Men's Formalwear", quantity: 2, price: 49.99)
+    order = Order.first
+    order.products << product
+    visit '/'
+    expect(page).to have_content 'Total: $59.98'
+    click_on '$10.00 discount'
+    expect(page).to have_content 'Total: $49.98'
+  end
+
 end

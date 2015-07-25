@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'orders#index'
-  resources :order do
+  resources :orders do
     resources :products
   end
   # The priority is based upon order of creation: first created -> highest priority.

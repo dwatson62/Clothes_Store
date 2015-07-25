@@ -1,3 +1,10 @@
+Available vouchers:
+
+<li> <%= form_for [@order] do |f| %>
+      <%= f.submit '$5.00 discount' %>
+    <% end %>
+</li>
+
 <% @products.each do |product| %>
   <li> <%= product.name %> - <%= product.category %> </li>
   <br>
@@ -21,6 +28,9 @@
     <li> <%= product.name %> <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
   <% end %>
   Total: <%= @total %>
+  <% if @order.discount > 0 %>
+    Discount: $<%= @order.discount %>
+  <% end %>
 <% else %>
   Empty!
 <% end %>

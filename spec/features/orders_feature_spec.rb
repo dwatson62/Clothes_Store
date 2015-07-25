@@ -60,3 +60,23 @@ feature 'A user while shopping' do
   end
 
 end
+
+feature 'Vouchers' do
+
+  before(:each) do
+    product = Product.create(name: 'Black Shoes', category: "Men's Footwear", quantity: 2, price: 9.99)
+    visit '/'
+    click_on 'Add to cart'
+  end
+
+  scenario 'Displays available vouchers' do
+    expect(page).to have_content 'Available vouchers: '
+  end
+
+  scenario 'Can apply a $5.00 discount to the order' do
+    expect(page).to have_content 'Total: $9.99'
+    click_on '$5.00 discount'
+    expect(page).to have_content 'Total: $4.99'
+  end
+
+end

@@ -1,6 +1,8 @@
 Clothes Store
 =======================
 
+[![Code Climate](https://codeclimate.com/github/dwatson62/Clothes_Store/badges/gpa.svg)](https://codeclimate.com/github/dwatson62/Clothes_Store)
+
 ## Synopsis
 
 This website mimics an online clothes store. Its features are:

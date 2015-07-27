@@ -29,7 +29,7 @@ The vouchers were an interesting problem to solve. With the types of vouchers gi
 
 ## To install from the terminal
 
-- ```git clone https://github.com/dwatson62/Clothes_Store```
+- ``` git clone https://github.com/dwatson62/Clothes_Store```
 - ``` cd Clothes_Store ```
 - ``` bundle ```
 - ``` bin/rake db:create ``` (this will create the databases 'clothing_tech_test_development and 'clothing_tech_test_test')

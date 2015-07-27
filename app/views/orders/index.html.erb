@@ -16,7 +16,7 @@
     <br>
     <br>
     <%= form_for [@order] do |f| %>
-      <%= f.submit value: @available_voucher['description'] %>
+      <%= f.submit @available_voucher['description'] %>
     <% end %>
   <% end %>
 <% else %>
@@ -25,6 +25,7 @@
 <br>
 <br>
 <% @products.each do |product| %>
+  <%= product.inspect %>
   <li> <%= product.name %> - <%= product.category %>
     <% if product.old_price %>
       Was <strike><%= number_to_currency(product.old_price) %></strike>

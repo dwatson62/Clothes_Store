@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- 2.0.0
+- 1.9.3
+- jruby-19mode
+- rbx-2
+before_script:
+- bundle
+- bin/rake db:create
+- bin/rake db:migrate
+script:
+- rspec

@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @order = Order.first_or_create
-    @products = Product.all
+    @products = Product.all.order(id: :desc).reverse
     @order.update_total
     if @order.discount == 0
       @available_voucher = @order.prepare_voucher

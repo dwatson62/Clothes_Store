@@ -29,10 +29,8 @@ class Order < ActiveRecord::Base
   end
 
   def apply_voucher(voucher)
-    if can_apply_voucher?(voucher)
-      self.discount += voucher['discount']
-      self.save
-    end
+    self.discount += voucher['discount']
+    self.save
   end
 
   def remove_discounts

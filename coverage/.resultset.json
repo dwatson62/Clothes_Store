@@ -107,15 +107,6 @@
         null,
         null
       ],
-      "/Users/darylwatson/Desktop/projects/techtests/clothing_tech_test/config/initializers/backtrace_silencers.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
       "/Users/darylwatson/Desktop/projects/techtests/clothing_tech_test/config/initializers/cookies_serializer.rb": [
         null,
         null,
@@ -379,6 +370,10 @@
         null,
         2,
         null,
+        1,
+        4,
+        null,
+        null,
         null
       ],
       "/Users/darylwatson/Desktop/projects/techtests/clothing_tech_test/app/models/product.rb": [
@@ -445,6 +440,6 @@
         null
       ]
     },
-    "timestamp": 1438007560
+    "timestamp": 1438009851
   }
 }

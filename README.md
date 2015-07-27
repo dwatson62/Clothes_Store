@@ -1,7 +1,7 @@
 Clothes Store
 =======================
 
-[![Code Climate](https://codeclimate.com/github/dwatson62/Clothes_Store/badges/gpa.svg)](https://codeclimate.com/github/dwatson62/Clothes_Store)
+[![Code Climate](https://codeclimate.com/github/dwatson62/Clothes_Store/badges/gpa.svg)](https://codeclimate.com/github/dwatson62/Clothes_Store) [![Build Status](https://travis-ci.org/dwatson62/Clothes_Store.svg?branch=master)](https://travis-ci.org/dwatson62/Clothes_Store)
 
 ## Synopsis
 

@@ -11,7 +11,7 @@ feature 'A user arrives on the home page for the first time' do
   let! (:order) { Order.first }
 
   scenario 'sees a list of all products' do
-    expect(page).to have_content "Black Shoes - Men's Footwear $9.99"
+    expect(page).to have_content "Men's Footwear Black Shoes $9.99"
   end
 
   scenario 'starts with an empty shopping cart' do
@@ -26,7 +26,9 @@ feature 'A user arrives on the home page for the first time' do
   end
 
   scenario 'cannot order an item that is out of stock' do
-    expect(page).to have_content "Black Tie - Men's Formalwear $15.99 Out of Stock"
+    Product.first.destroy
+    visit '/'
+    expect(page).to have_content "Men's Formalwear Black Tie $15.99 Out of Stock"
   end
 
 end
@@ -45,9 +47,9 @@ feature 'A user while shopping' do
   end
 
   scenario 'when last of a product is ordered, it is displayed as out of stock' do
-    expect(page).to have_content "Black Shoes - Men's Footwear $9.99"
+    expect(page).to have_content "Men's Footwear Black Shoes $9.99"
     click_on 'Add to cart'
-    expect(page).to have_content "Black Shoes - Men's Footwear $9.99 Out of Stock"
+    expect(page).to have_content "Men's Footwear Black Shoes $9.99 Out of Stock"
   end
 
   scenario 'can remove a product from the cart' do

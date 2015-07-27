@@ -1,45 +1,11 @@
-<h3>Shopping cart:</h3>
-<% if @ordered_products.length > 0 %>
-  <% @ordered_products.uniq.each do |product| %>
-    <li> <%= @ordered_products.count(product) %>x <%= product.name %> <%= number_to_currency(product.price) %> <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
-    <br>
-  <% end %>
-  <b>Total: <%= number_to_currency(@order.total) %></b>
-  <br>
-  <% if @order.discount > 0 %>
-    <i>Discount: <%= number_to_currency(@order.discount) %></i>
-    <br>
-  <% end %>
-  <br>
-  <% if @available_voucher %>
-    Available voucher:
-    <br>
-    <br>
-    <%= form_for [@order] do |f| %>
-      <%= f.submit @available_voucher['description'] %>
+<header>
+  <ol class="breadcrumb">
+    <% @categories.each do |category| %>
+      <li class='category'><a href="/?category=<%= category%>"><%= category %></a></li>
     <% end %>
-  <% end %>
-<% else %>
-  Empty!
-<% end %>
-<br>
-<br>
-<% @products.each do |product| %>
-  <%= product.inspect %>
-  <li> <%= product.name %> - <%= product.category %>
-    <% if product.old_price %>
-      Was <strike><%= number_to_currency(product.old_price) %></strike>
-      Now
-    <% end %>
-    <%= number_to_currency(product.price) %>
-  </li>
-  <br>
-  <% if product.quantity < 1 %>
-    Out of Stock
-  <% else %>
-    <%= form_for [@order, product] do |f| %>
-      <%= f.submit 'Add to cart' %>
-    <% end %>
-  <% end %>
-  <br>
-<% end %>
+  </ol>
+</header>
+<div class="row">
+  <div class="col-md-6"><%= render 'shoppingcart' %></div>
+  <div class="col-md-6"><%= render 'products' %></div>
+</div>

@@ -1,0 +1,28 @@
+<div id='cart'>
+  <h3>Shopping cart:</h3>
+  <br>
+  <% if @ordered_products.length > 0 %>
+    <% @ordered_products.uniq.each do |product| %>
+      <li> <%= @ordered_products.count(product) %>x <%= product.name %> <%= number_to_currency(product.price) %>
+        <br>
+        <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
+      <br>
+    <% end %>
+    <b>Total: <%= number_to_currency(@order.total) %></b>
+    <br>
+    <% if @order.discount > 0 %>
+      <i>Discount: <%= number_to_currency(@order.discount) %></i>
+      <br>
+    <% end %>
+    <% if @available_voucher %>
+      <h4>Available voucher:</h4>
+      <br>
+      <%= form_for [@order] do |f| %>
+        <%= f.submit @available_voucher['description'] %>
+      <% end %>
+      <br>
+    <% end %>
+  <% else %>
+    Empty!
+  <% end %>
+</div>

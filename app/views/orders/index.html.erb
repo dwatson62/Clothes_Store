@@ -1,11 +1,9 @@
 <header>
-  <ol class="breadcrumb">
-    <% @categories.each do |category| %>
-      <li class='category'><a href="/?category=<%= category%>"><%= category %></a></li>
-    <% end %>
-  </ol>
+  <%= render 'partials/breadcrumbs' %>
 </header>
-<div class="row">
-  <div class="col-md-6"><%= render 'shoppingcart' %></div>
-  <div class="col-md-6"><%= render 'products' %></div>
-</div>
+<body>
+  <div class="row">
+    <div class="col-md-6"><%= render 'partials/shoppingcart' %></div>
+    <div class="col-md-6"><%= render 'partials/products' %></div>
+  </div>
+</body>

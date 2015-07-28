@@ -3,8 +3,7 @@
   <br>
   <% if @ordered_products.length > 0 %>
     <% @ordered_products.uniq.each do |product| %>
-      <li> <%= @ordered_products.count(product) %>x <%= product.name %> <%= number_to_currency(product.price) %>
-        <br>
+      <li> <h5><%= @ordered_products.count(product) %>x <%= product.name %> <%= number_to_currency(product.price) %></h5>
         <%= link_to 'Remove item', order_product_path(@order, product), method: :delete %></li>
       <br>
     <% end %>

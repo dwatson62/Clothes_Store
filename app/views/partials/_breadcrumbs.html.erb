@@ -1,0 +1,5 @@
+<ol class="breadcrumb">
+  <% @categories.each do |category| %>
+    <li class='category'><a href="/?category=<%= category%>"><%= category %></a></li>
+  <% end %>
+</ol>

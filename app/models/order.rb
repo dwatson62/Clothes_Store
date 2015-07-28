@@ -17,6 +17,7 @@ class Order < ActiveRecord::Base
   end
 
   def prepare_voucher
+    return if self.discount > 0
     vouchers.each do |voucher|
       return voucher if can_apply_voucher?(voucher)
     end

@@ -29,7 +29,6 @@ The vouchers were an interesting problem to solve. With the types of vouchers gi
 - The main controller ```'app/controllers/orders_controller.rb'``` handles the routes for the index and update (used for the vouchers)
 - Products controller ```'app/controllers/products.rb'``` handles routes for adding and removing products to the order
 - Feature tests are in ```'spec/features'```
-- 
 
 ## To install from the terminal
 

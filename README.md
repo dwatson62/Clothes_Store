@@ -24,10 +24,12 @@ The vouchers were an interesting problem to solve. With the types of vouchers gi
 ## Program Layout
 
 - One view page, where all the features are displayed ```'app/views/order/index.html.erb'```
-- Two models: ```'app/models/order.rb'``` and ```'app/models/product.rb'``` the methods pertaining to vouchers are stored inside the former
+- Two models: ```'app/models/order.rb'``` and ```'app/models/product.rb'```
+- One module ```'app/helpers/vouchers_helpers.rb'``` containing the methods pertaining to vouchers
 - The main controller ```'app/controllers/orders_controller.rb'``` handles the routes for the index and update (used for the vouchers)
 - Products controller ```'app/controllers/products.rb'``` handles routes for adding and removing products to the order
 - Feature tests are in ```'spec/features'```
+- 
 
 ## To install from the terminal
 
